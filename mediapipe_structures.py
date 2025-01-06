@@ -75,6 +75,7 @@ with mp_holistic.Holistic(
     for parts in mp_holistic.PoseLandmark:
       parts.value
     
+    name_and_value = { str(name): results.pose_landmarks.landmark[name] for name in mp_holistic.PoseLandmark }
     # Flip the image horizontally for a selfie-view display.
     cv2.imshow('MediaPipe Holistic', cv2.flip(image, 1))
     if cv2.waitKey(5) & 0xFF == 27:
